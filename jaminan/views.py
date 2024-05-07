@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from rest_framework import viewsets
+from .models import Jaminan
+from .serializers import JaminanSerializer
 
-# Create your views here.
+class JaminanViewSet(viewsets.ModelViewSet):
+    queryset = Jaminan.objects.all()
+    serializer_class = JaminanSerializer
