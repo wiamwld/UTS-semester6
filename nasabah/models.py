@@ -11,3 +11,10 @@ class Nasabah(models.Model):
 
     def __str__(self):
         return self.nama
+
+class Jaminan (models.Model):
+    nasabah = models.ForeignKey(Nasabah, related_name="jaminan", on_delete=models.CASCADE)
+    barang_jaminan = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.nama
