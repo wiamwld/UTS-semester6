@@ -24,7 +24,6 @@ Including another URLconf
   ##  path('', include('jaminan.urls')),
 ##]
 
-
 from django.contrib import admin
 from django.urls import path, include
 
