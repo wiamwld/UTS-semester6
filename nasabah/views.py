@@ -50,9 +50,7 @@ def nasabah_detail(request, pk, format=None):
 
 # view untuk produk dengan class base view
 class JaminanList(APIView):
-    """
-    ini merupakan proses pengambilan data atau simpan data
-    """
+
     permission_classes = [permissions.AllowAny]
     def get(self, request, format=None):
         jaminan = Jaminan.objects.all()

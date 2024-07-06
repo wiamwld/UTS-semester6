@@ -5,7 +5,7 @@ class NasabahSerializer(serializers.ModelSerializer):
     jaminan = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
     class Meta:
         model = Nasabah
-        fields = ["nama", "alamat", "nomor_telepon", "saldo", "tanggal_lahir", "email", "jaminan"]
+        fields = ["id", "nama", "alamat", "nomor_telepon", "tanggal_lahir", "email", "jaminan"]
 
 class JaminanSerializer(serializers.ModelSerializer):
     class Meta:
