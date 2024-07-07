@@ -22,7 +22,7 @@ urlpatterns = [
     path('jaminan/', views.JaminanList.as_view()),
     path('jaminan/<int:pk>/', views.JaminanDetail.as_view()),
     path('baranggadai/', views.baranggadai_list),
-    path('peminjaman/', views.peminjaman_list),
+    path('pinjaman/', views.pinjaman_list),
 
 ]
 

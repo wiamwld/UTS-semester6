@@ -3,8 +3,8 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from django.http import Http404
 from rest_framework.views import APIView
-from .models import Nasabah, Jaminan, BarangGadai, Peminjaman
-from .serializers import NasabahSerializer, JaminanSerializer, BarangGadaiSerializer, PeminjamanSerializer
+from .models import Nasabah, Jaminan, BarangGadai, Pinjaman
+from .serializers import NasabahSerializer, JaminanSerializer, BarangGadaiSerializer, PinjamanSerializer
 
 # Create your views here.
 @api_view(['GET', 'POST']) # decorator
@@ -111,15 +111,15 @@ def baranggadai_list(request, format=None):
     
 @api_view(['GET', 'POST']) # decorator
 @permission_classes([permissions.AllowAny])
-def peminjaman_list(request, format=None):
+def pinjaman_list(request, format=None):
 
     if request.method == 'GET':
-        peminjaman = Peminjaman.objects.all()
-        serializer = PeminjamanSerializer(peminjaman, many=True)
+        pinjaman = Pinjaman.objects.all()
+        serializer = PinjamanSerializer(pinjaman, many=True)
         return Response(serializer.data)
 
     elif request.method == 'POST':
-        serializer = PeminjamanSerializer(data=request.data)
+        serializer = PinjamanSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
