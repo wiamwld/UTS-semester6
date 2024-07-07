@@ -29,8 +29,10 @@ class BarangGadai(models.Model):
         return self.nama_barang
     
 class Peminjaman(models.Model):
-    nasabah = models.ForeignKey(Nasabah, on_delete=models.CASCADE)
-    jaminan = models.ForeignKey(Jaminan, on_delete=models.CASCADE)
+    nasabah = models.ForeignKey(Nasabah, related_name="peminjamans", on_delete=models.CASCADE)
     jumlah_pinjam = models.DecimalField(max_digits=10, decimal_places=2)
-    tanggal_pinjam = models.DateTimeField(auto_now_add=True)
-    tanggal_jatuh_tempo = models.DateTimeField()
+    tanggal_pinjam = models.DateField(auto_now_add=True)
+    tanggal_jatuh_tempo = models.DateField()
+    
+    def __str__(self):
+        return self.nasabah
